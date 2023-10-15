@@ -1,0 +1,14 @@
+- name: Check is firectory is present
+  hosts: all
+  gather_facts: no
+  become: yes
+
+  tasks:
+  - name: Task name
+    stat:
+      path: /opt/packages/dummy
+    register: register_name
+  - name: Task name
+    debug:
+      msg: "The file or directory exists"
+    when: register_name.stat.exists

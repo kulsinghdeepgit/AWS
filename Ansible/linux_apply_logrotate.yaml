@@ -1,0 +1,10 @@
+---
+- hosts: all
+  become: yes
+  gather_facts: false
+  tasks:
+  - name: copy script applog
+    copy:
+      src: /home/kuwar.kuldeepsingh/ansible/applog2
+      dest: /etc/logrotate.d/applog2
+      remote_src: no

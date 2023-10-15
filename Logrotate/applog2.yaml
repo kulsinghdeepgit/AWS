@@ -1,0 +1,15 @@
+/var/log/innovaccer/*/*/*.log
+/var/log/innovaccer/indata/*/*/*.log
+/var/log/innovaccer/indata/*/*.log
+/opt/packages/*/*/*.log
+/opt/packages/*/*/*/*.log
+/opt/packages/*/*/*/*/*.log
+/opt/packages/*/*/*/*/*/*.log{
+    su root root
+    rotate 15
+    daily
+    compress
+    notifempty
+    missingok
+    copytruncate
+}

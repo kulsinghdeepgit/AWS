@@ -1,0 +1,11 @@
+- name: checking service status
+  hosts: all
+  become: yes
+  tasks:
+  - name: checking service status
+    shell: "sudo netstat -tnlup | grep -i 9100"
+    register: result
+    ignore_errors: yes
+  - name: showing report
+    debug:
+     var: result

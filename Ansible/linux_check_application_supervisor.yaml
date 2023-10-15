@@ -1,0 +1,13 @@
+- name: checking service status
+  hosts: all
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: checking ssh status
+  ##### for applicationlayerapi ####
+    shell: "supervisorctl status | grep -i applicationlayer"
+    register: result
+    ignore_errors: yes
+  - name: showing report
+    debug:
+     var: result

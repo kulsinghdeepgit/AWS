@@ -1,0 +1,14 @@
+/var/log/elasticsearch/*.log.*[!.][!g][!z] 
+/var/log/elasticsearch/*-????-??-??.log {
+    su elasticsearch elasticsearch
+    rotate 15
+    daily
+    compress
+    notifempty
+    missingok
+    nocreate
+    sharedscripts
+    postrotate
+       find /var/log/elasticsearch -name "*.log.*" -type f -mtime +15 -exec rm -f {} \;
+    endscript
+}

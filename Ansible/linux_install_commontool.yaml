@@ -1,0 +1,18 @@
+---
+- hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+
+  - name: Install htop,iotop,lsof
+    ansible.builtin.yum:
+      name: ['htop']
+      state: present
+  - name: Install htop,iotop,lsof
+    ansible.builtin.yum:
+      name: ['iotop']
+      state: present
+  - name: Install htop,iotop,lsof
+    ansible.builtin.yum:
+      name: ['lsof']
+      state: present

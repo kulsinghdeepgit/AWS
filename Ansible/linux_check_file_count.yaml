@@ -1,0 +1,13 @@
+- name: check es log rotation
+  hosts: all
+  become: yes
+  gather_facts: no
+  tasks:
+  - name: checking root crontab
+#    shell: crontab -l | grep -i script
+    shell: ls /var/log/elasticsearch/ | grep -i log | wc
+    register: result
+    ignore_errors: yes
+  - name: showing report
+    debug:
+     var: result

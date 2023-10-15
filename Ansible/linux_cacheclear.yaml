@@ -1,0 +1,15 @@
+---
+- name: Cache-Clear Cron
+  hosts: all
+  become: yes
+  tasks:
+   - name: "Cache-Clear"
+     ansible.builtin.cron:
+      name: "Cache-Clear"
+      state: present
+      minute: "30"
+      hour: "1"
+      day: "*"
+      month: "*"
+      weekday: "*"
+      job: 'sync; echo 3 > /proc/sys/vm/drop_caches'

@@ -1,0 +1,11 @@
+- name: checking os version
+  hosts: all
+  gather_facts: False
+  become: yes
+  tasks:
+  - name: progressing
+    shell: "cat /etc/os-release | grep -i PRETTY_NAME &&  cat /etc/os-release | grep -i VERSION_ID"
+    register: result
+    ignore_errors: yes
+  - name: showing report
+    debug:

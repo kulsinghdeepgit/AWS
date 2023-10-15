@@ -1,0 +1,15 @@
+/var/log/innovaccer/*/*/*.log.*[!gz] {
+    su root root
+    rotate 15
+    maxage 15
+    daily
+    missingok
+    compress
+    dateext
+    dateformat r
+    nocreate
+    sharedscripts
+    postrotate
+       rm -rf $(cd /var/log/innovaccer && find -type f -mtime +15 | grep -v "\.log$");
+    endscript
+}

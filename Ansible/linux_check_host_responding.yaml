@@ -1,0 +1,11 @@
+- name: checking service status
+  hosts: all
+  become: yes
+  tasks:
+  - name: checking ssh status
+    shell: uptime
+    register: result
+    ignore_errors: yes
+#  - name: showing report
+#    debug:
+#     var: result

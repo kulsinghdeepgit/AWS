@@ -1,0 +1,10 @@
+/var/lib/docker/overlay2/*/*/*/*/*/*/*/*.log
+/var/lib/docker/containers/*/*.log{
+    su root root
+    rotate 15
+    daily
+    compress
+    notifempty
+    missingok
+    copytruncate
+}

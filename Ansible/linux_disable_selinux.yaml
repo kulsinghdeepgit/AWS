@@ -1,0 +1,11 @@
+- name: Disable SE Linux
+  hosts: all
+  become: yes
+  tasks:
+  - name: disabling selinux
+    shell: "sudo setenforce 0 && echo 0 > /sys/fs/selinux/enforce"
+    register: result
+    ignore_errors: yes
+ # - name: showing report
+ #   debug:
+ #    var: result

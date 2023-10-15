@@ -1,0 +1,25 @@
+---
+- name: Logrotate-Helper Cron
+  hosts: all
+  become: yes
+  tasks:
+   - name: "Logrotate-Helper-Removal"
+     ansible.builtin.cron:
+      name: "Logrotate-Helper-Removal"
+      state: present
+      minute: "50"
+      hour: "1"
+      day: "*"
+      month: "*"
+      weekday: "*"
+      job: 'find /var/log/ -type f -mtime +15 | grep -v "\.log$" | xargs rm -rf'
+   - name: "Logrotate-Helper-Compression"
+     ansible.builtin.cron:
+      name: "Logrotate-Helper-Compression"
+      state: present
+      minute: "50"
+      hour: "2"
+      day: "*"
+      month: "*"
+      weekday: "*"
+      job: 'find /var/log/ -type f -mtime +2 | grep -v "\.log$" | grep -v "\.gz$" | xargs gzip'
