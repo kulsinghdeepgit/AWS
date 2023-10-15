@@ -1,6 +1,6 @@
 #!/bin/bash
-regions='us-east-1 us-east-2 us-west-1 us-west-2' #### region where resources are present
-names='infra-old infra-internal'       #### profile name as per your aws profile. Present in ~/.aws/config. Use below command to get the list
+regions='<region name>' #### region where resources are present
+names='<profile name>'       #### profile name as per your aws profile. Present in ~/.aws/config. Use below command to get the list
 #  'cat ~/.aws/config | grep -i profile | grep -v "source_profile" | cut -d ' ' -f 2 | rev| cut -c 2- | rev'
 
 touch output.log    #### creating output file

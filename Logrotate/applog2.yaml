@@ -1,6 +1,6 @@
-/var/log/innovaccer/*/*/*.log
-/var/log/innovaccer/indata/*/*/*.log
-/var/log/innovaccer/indata/*/*.log
+/var/log/*/*/*/*.log
+/var/log/*/indata/*/*/*.log
+/var/log/*/indata/*/*.log
 /opt/packages/*/*/*.log
 /opt/packages/*/*/*/*.log
 /opt/packages/*/*/*/*/*.log
